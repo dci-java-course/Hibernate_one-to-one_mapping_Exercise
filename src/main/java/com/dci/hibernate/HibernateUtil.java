@@ -25,16 +25,13 @@ public class HibernateUtil {
     }
  
     public static void loadSessionFactory(){
-    	
-    	//todo
-    	//Create a configuration object with the configuration file inside src/main/resources
-       
-        
-        //add annotated classes Employee and EmpDetails to the configuration
-       
-        
-        //build the session Factory.
-       
+ 
+        Configuration configuration = new Configuration();
+        configuration.configure("/dci-hibernate.cfg.xml");
+        configuration.addAnnotatedClass(Employee.class);
+        configuration.addAnnotatedClass(EmpDetails.class);
+        ServiceRegistry srvcReg = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
+        sessionFactory = configuration.buildSessionFactory(srvcReg);
     }
  
     public static Session getSession() throws HibernateException {
