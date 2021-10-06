@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class Employee implements Serializable {
  
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name="EMP_ID", unique = true, nullable = false)
     private Long empId;
  

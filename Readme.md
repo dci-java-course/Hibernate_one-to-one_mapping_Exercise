@@ -7,7 +7,7 @@ A one-to-one relationships occurs when one entity is related to exactly one occu
 1. Create a database named my_db and create tables in it using the queries :
 ```
 CREATE TABLE EMPLOYEES (
-    EMP_ID BIGINT NOT NULL AUTO_INCREMENT,
+    EMP_ID SERIAL,
     NAME VARCHAR(252),
     DEPARTMENT VARCHAR(128),
     SALARY BIGINT,
@@ -15,8 +15,8 @@ CREATE TABLE EMPLOYEES (
     PRIMARY KEY (EMP_ID)
 );
 CREATE TABLE EMP_DETAILS (
-    ED_ID BIGINT NOT NULL AUTO_INCREMENT,
-    EMP_ID BIGINT,
+    ED_ID SERIAL,
+    EMP_ID SERIAL,
     ADDRESS VARCHAR(252),
     GENDER VARCHAR(8),
     YEARS_OF_SERVICE BIGINT,
@@ -36,6 +36,10 @@ INSERT INTO EMP_DETAILS (EMP_ID, ADDRESS, GENDER, YEARS_OF_SERVICE, BANK_ACCOUNT
 INSERT INTO EMP_DETAILS (EMP_ID, ADDRESS, GENDER, YEARS_OF_SERVICE, BANK_ACCOUNT) VALUES (2, 'Texas', 'Male', 2, '988800098');
 INSERT INTO EMP_DETAILS (EMP_ID, ADDRESS, GENDER, YEARS_OF_SERVICE, BANK_ACCOUNT) VALUES (3, 'Detroit', 'Male', 6, '11129098');
 INSERT INTO EMP_DETAILS (EMP_ID, ADDRESS, GENDER, YEARS_OF_SERVICE, BANK_ACCOUNT) VALUES (4, 'Kansas', 'Male', 10, '887639421');
+```
+Additionally create a sequence named 'hibernate_sequence'
+```
+  CREATE SEQUENCE hibernate_sequence START 5;
 ```
 
 Our tables are already One-to-One mapped. We have created EMPLOYEES AND EMP_DETAILS tables. EMPLOYEES is our primary table and we are using Foreign Key in EMP_DETAILS table for One-to-One mapping.
