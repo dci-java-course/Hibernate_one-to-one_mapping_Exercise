@@ -1,4 +1,4 @@
-# Exercise #  - Hibernate One to One Mapping Relationship
+# Exercise #3  - Hibernate One to One Mapping Relationship
 
 In this page, you are going to implement bidirectional One-to-One mapping between persisted objects using @OneToOne annotation.  
 A one-to-one relationships occurs when one entity is related to exactly one occurrence in another entity.
